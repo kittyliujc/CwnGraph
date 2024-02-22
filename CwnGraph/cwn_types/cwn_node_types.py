@@ -400,6 +400,16 @@ class CwnSense(CwnNode):
         synonyms = [x[1] for x in relation_infos 
                     if x[0] == "synonym" and x[2]=="forward"]
         return synonyms
+    @property
+    def antonym(self):
+        relation_infos = self.relations
+        antonyms = [x[1] for x in relation_infos 
+                    if x[0] == "antonym" and x[2]=="forward"]
+        return antonyms
+
+
+    
+
 
     @property
     def facets(self):

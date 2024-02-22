@@ -290,6 +290,11 @@ class CwnGraphUtils(GraphStructure):
         lemma_groups = {grp_key: list(grp_iter)
             for grp_key, grp_iter in lemma_groups if grp_key}
         return lemma_groups
+    
+    def get_all_lemmas_jimmy(self):
+        lemmas = [CwnLemma(nid, self) for nid, ndata in self.V.items()
+                    if ndata["node_type"] == "lemma"]
+        return lemmas
 
     def get_all_senses(self):
         senses = [CwnSense(nid, self) for nid, ndata in self.V.items()
